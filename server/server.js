@@ -35,7 +35,7 @@ wss.on("connection", (ws) => {
         type: "notification",
         text: `${ws.username} has joined the chat`,
       });
-      broadcast(joinMessage);
+      broadcast(joinMessage, ws);
     } else {
       const outgoingMessage = JSON.stringify({
         type: "message",
@@ -47,17 +47,19 @@ wss.on("connection", (ws) => {
   });
 
   ws.on("close", () => {
-    const disconnectMessage = JSON.stringify({
-      type: "notification",
-      text: `${ws.username || "User"} has disconnected`,
-    });
-    broadcast(disconnectMessage);
+    if (ws.username) {
+      const disconnectMessage = JSON.stringify({
+        type: "notification",
+        text: `${ws.username} has disconnected`,
+      });
+      broadcast(disconnectMessage, ws);
+    }
   });
 });
 
-function broadcast(data) {
+function broadcast(data, excludeClient = null) {
   wss.clients.forEach((client) => {
-    if (client.readyState === WebSocket.OPEN) {
+    if (client !== excludeClient && client.readyState === WebSocket.OPEN) {
       client.send(data);
     }
   });

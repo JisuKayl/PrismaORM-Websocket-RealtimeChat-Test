@@ -76,10 +76,15 @@ function App() {
     socket.current.onclose = () => {
       setConnected(false);
 
-      setMessages((prev) => [
-        ...prev,
-        { text: `${username} has disconnected`, notification: true },
-      ]);
+      setMessages((prev) => {
+        if (username !== "You") {
+          return [
+            ...prev,
+            { text: `${username} has disconnected`, notification: true },
+          ];
+        }
+        return prev;
+      });
     };
   };
 
@@ -97,6 +102,24 @@ function App() {
     if (socket.current) {
       socket.current.close();
       setConnected(false);
+
+      setMessages((prev) => {
+        if (
+          prev.length > 0 &&
+          prev[prev.length - 1].text === "You have disconnected" &&
+          prev[prev.length - 1].username === "You"
+        ) {
+          return prev;
+        }
+        return [
+          ...prev,
+          {
+            username: "You",
+            text: "You have disconnected",
+            notification: true,
+          },
+        ];
+      });
     }
   };
 
@@ -151,14 +174,16 @@ function App() {
                   <div
                     key={index}
                     className={
-                      msg.username === "You"
+                      msg.notification
+                        ? "notification"
+                        : msg.username === "You"
                         ? "message sent"
                         : "message received"
                     }
                     style={
                       msg.notification
                         ? { textAlign: "center", color: "gray" }
-                        : { padding: "10px", backgroundColor: "#f0f0f0" }
+                        : {}
                     }
                   >
                     {msg.notification
@@ -167,6 +192,7 @@ function App() {
                   </div>
                 ))}
               </div>
+
               <div className="input-section">
                 <input
                   type="text"

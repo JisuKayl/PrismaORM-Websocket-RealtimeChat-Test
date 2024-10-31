@@ -13,8 +13,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Animal {
-  id      Int     @id @default(autoincrement()) 
-  name    String  @db.VarChar(50) 
-  species String  @db.VarChar(50) 
+model User {
+  id        Int    @id @default(autoincrement())
+  firstName String @db.VarChar(50) 
+  lastName  String @db.VarChar(50) 
+  email     String @unique @db.VarChar(255)
+  username  String @unique @db.VarChar(50)
+  password  String @db.VarChar(255)
 }

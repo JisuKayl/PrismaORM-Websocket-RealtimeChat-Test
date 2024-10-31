@@ -14,12 +14,50 @@ html {
 .App {
   max-width: 100vw;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
   padding: 20px;
   color: #333;
+}
+
+.container {
+  display: flex;
+  gap: 1.5em;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.user-table th,
+.user-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.user-table th {
+  background-color: #f2f2f2;
+}
+
+.user-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.user-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.user-section,
+.chat-section {
+  width: 48%;
+  margin: 20px 0;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
@@ -28,7 +66,38 @@ h2 {
   color: #444;
 }
 
-.animal-section,
+.user-form,
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.user-form input,
+.login-form input,
+.user-form button,
+.login-form button {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.user-form button,
+.login-form button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.user-form button:hover,
+.login-form button:hover {
+  background-color: #45a049;
+}
+
 .chat-section {
   width: 90%;
   max-width: 800px;
@@ -39,39 +108,8 @@ h2 {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.animal-form {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-.animal-form input,
-.animal-form button {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.animal-form button {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.animal-form button:hover {
-  background-color: #45a049;
-}
-
-.chat-box {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
 .messages {
-  height: 60vh;
+  height: 45vh;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -110,18 +148,13 @@ h2 {
   padding: 5px 0;
 }
 
-.input-section {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
 .input-section input {
   flex-grow: 1;
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ddd;
   border-radius: 4px;
+  width: 100%;
 }
 
 .input-section button {
@@ -132,6 +165,7 @@ h2 {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  width: auto;
 }
 
 .input-section button:hover {
@@ -141,6 +175,7 @@ h2 {
 .leave-button {
   margin-top: 10px;
   background-color: #ff4d4d;
+  width: 100%;
   color: white;
   border: none;
   padding: 10px;
@@ -155,42 +190,58 @@ h2 {
 
 .join-section {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
+  margin: 20px;
 }
 
 .join-section input {
   padding: 10px;
-  font-size: 16px;
+  width: 100%;
+  margin: 5px 0;
   border: 1px solid #ddd;
   border-radius: 4px;
-  flex-grow: 1;
+  font-size: 16px;
 }
 
 .join-section button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #007bff;
+  padding: 10px 15px;
+  background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  width: 100%;
+  font-size: 16px;
 }
 
 .join-section button:hover {
-  background-color: #0056b3;
+  background-color: #45a049;
 }
 
-ul {
-  list-style-type: none;
+.chat-container {
+  margin: 20px;
 }
 
-ul li {
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
+.chat-header {
+  font-size: 24px;
+  text-align: center;
 }
 
-ul li:last-child {
-  border-bottom: none;
+.chat-box {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  height: 100%;
+}
+
+.input-section {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.input-section button {
+  background-color: #4caf50;
+  color: white;
 }

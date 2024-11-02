@@ -4,7 +4,7 @@ Note: This repository does not follow a proper file structure as it is intended 
 
 Overview:
 
-This project is a simple real-time chat application that utilizes Prisma ORM for database management and WebSocket for real-time communication. Users can create accounts and join chat rooms to send and receive messages instantly.
+This project is a simple real-time chat application that utilizes Prisma ORM for database management and WebSocket for real-time communication. Users can create accounts and join the chat room to send and receive messages instantly.
 
 Features:
 

@@ -8,12 +8,12 @@ This project is a simple real-time chat application that utilizes Prisma ORM for
 
 Features:
 
-User Management: Create accounts (POST) and display all created accounts (GET).
-Real-Time Chat: Simple login feature to join chat, real-time messaging interaction, and a leave button to disconnect.
+- User Management: Create accounts (POST) and display all created accounts (GET).
+- Real-Time Chat: Simple login feature to join chat, real-time messaging interaction, and a leave button to disconnect.
 Technologies Used:
 
-Frontend: React JS with Axios
-Styling: CSS
-Backend: Express JS
-WebSocket: For real-time communication
-Database: MySQL with Prisma
+- Frontend: React JS with Axios
+- Styling: CSS
+- Backend: Express JS
+- WebSocket: For real-time communication
+- Database: MySQL with Prisma

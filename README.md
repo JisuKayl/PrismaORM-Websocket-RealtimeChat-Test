@@ -15,7 +15,11 @@ Real-Time Chat: Simple login feature to join chat, real-time messaging interacti
 Technologies Used:
 
 Frontend: React JS with Axios
+
 Styling: CSS
+
 Backend: Express JS
+
 WebSocket: For real-time communication
+
 Database: MySQL with Prisma

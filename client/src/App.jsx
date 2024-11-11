@@ -62,8 +62,6 @@ function App() {
         password: loginPassword,
       });
 
-      console.log("Login response:", response.data); // Log the entire response
-
       if (response.data.success && response.data.user) {
         setLoggedInUsername(response.data.user.username);
         handleJoin(response.data.user.username);

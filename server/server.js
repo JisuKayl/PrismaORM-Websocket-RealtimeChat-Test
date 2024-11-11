@@ -26,17 +26,16 @@ app.use(cookieParser());
 app.use(routes);
 
 wss.on("connection", (ws) => {
-  let isJoined = false; // Track if user has joined the chat
+  let isJoined = false; 
 
   ws.on("message", (data) => {
     const parsedData = JSON.parse(data);
 
     if (parsedData.type === "join") {
       ws.username = parsedData.username;
-
-      // If user is joining for the first time in this session
+      
       if (!isJoined) {
-        isJoined = true; // Mark user as joined
+        isJoined = true; 
 
         const joinMessage = JSON.stringify({
           type: "notification",
@@ -44,7 +43,6 @@ wss.on("connection", (ws) => {
         });
         broadcast(joinMessage, ws);
       } else {
-        // Send a notification that user has rejoined
         const rejoinMessage = JSON.stringify({
           type: "notification",
           text: `${ws.username} has rejoined the chat`,

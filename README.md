@@ -16,5 +16,5 @@ Technologies Used:
 - Frontend: React JS with Axios
 - Styling: CSS
 - Backend: Express JS
-- WebSocket: For real-time communication
+- Communication Protocol: Websocket
 - Database: MySQL with Prisma

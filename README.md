@@ -18,3 +18,6 @@ Technologies Used:
 - Backend: Express JS
 - Communication Protocol: Websocket
 - Database: MySQL with Prisma
+
+Sample Output:
+![image](https://github.com/user-attachments/assets/7c84c91d-abda-458e-9400-d5db34f668a6)

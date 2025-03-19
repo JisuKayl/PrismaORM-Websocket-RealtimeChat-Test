@@ -154,6 +154,10 @@ function App() {
           },
         ];
       });
+
+      setLoginIdentifier("");
+      setLoginPassword("");
+      setLoggedInUsername("");
     }
   };
 
